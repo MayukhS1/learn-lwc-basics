@@ -1,0 +1,16 @@
+<template>
+	<lightning-layout>
+		<lightning-layout-item size="12">
+			<lightning-input label="Name" onblur={handleNameChange}></lightning-input>
+			<lightning-input label="Age" type="number" onblur={handleAgeChange}></lightning-input>
+			<template if:true={disableButton}>
+				<lightning-formatted-text value="Age must be between 18-60"
+					class="slds-text-body_small slds-text-color_error"></lightning-formatted-text>
+			</template>
+			<div class="slds-m-top_x-small">
+				<lightning-button label="Next" variant="brand" title="Neutral action" onclick={handleClick}
+					disabled={disableButton}></lightning-button>
+			</div>
+		</lightning-layout-item>
+	</lightning-layout>
+</template>
