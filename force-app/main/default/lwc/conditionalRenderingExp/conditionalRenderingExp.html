@@ -1,16 +1,25 @@
 <template>
 	<lightning-layout>
 		<lightning-layout-item size="12">
-			<lightning-input label="Name" onblur={handleNameChange}></lightning-input>
-			<lightning-input label="Age" type="number" onblur={handleAgeChange}></lightning-input>
-			<template if:true={disableButton}>
-				<lightning-formatted-text value="Age must be between 18-60"
-					class="slds-text-body_small slds-text-color_error"></lightning-formatted-text>
-			</template>
-			<div class="slds-m-top_x-small">
-				<lightning-button label="Next" variant="brand" title="Neutral action" onclick={handleClick}
-					disabled={disableButton}></lightning-button>
+			<div style="width: 20em;">
+				<lightning-input label="Name" onblur={handleNameChange}></lightning-input>
+				<lightning-input label="Age" type="number" onblur={handleAgeChange}></lightning-input>
+				<template if:true={disableButton}>
+					<lightning-formatted-text value="Age must be between 18-60"
+						class="slds-text-body_small slds-text-color_error"></lightning-formatted-text>
+				</template>
+				<div class="slds-m-top_x-small">
+					<lightning-button label="Next" variant="brand" title="Neutral action" onclick={handleClick}
+						disabled={disableButton}></lightning-button>
+				</div>
 			</div>
+			<!-- <template for:each={registeredUsers} for:item="user">
+				<div key={user.id}>
+					<lightning-formatted-text value={user.name}></lightning-formatted-text>
+					<br>
+				</div>
+			</template> -->
+			<lightning-datatable key-field="id" data={registeredUsers} columns={columns}></lightning-datatable>
 		</lightning-layout-item>
 	</lightning-layout>
 </template>
