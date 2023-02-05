@@ -14,8 +14,6 @@ export default class ConditionalRenderingExp extends LightningElement {
 		}else{
 			this.disableButton = false;
 		}
-		console.log('age: '+this.age);
-		console.log('disableButton: '+this.disableButton);
 	}
 	handleClick(){		
 	}
