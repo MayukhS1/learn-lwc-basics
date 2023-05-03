@@ -1,0 +1,11 @@
+<template>
+	<lightning-layout class="slds-card">
+		<lightning-layout-item size="12" class="slds-card__body slds-card__body_inner">
+            <lightning-input type="number" label="Loan Amount" value={loanAmount} onchange={handleLoanAmountChange}></lightning-input>
+            <lightning-input type="number" label="Interest Rate" value={interestRate} onchange={handleInterestRateChange}></lightning-input>
+            <lightning-input type="number" label="Loan Term" value={loanTerm} onchange={handleLoanTermChange}></lightning-input>
+            <lightning-button label="Calculate" onclick={handleCalculate}></lightning-button>
+            <lightning-input type="text" label="Monthly Payment (EMI)" disabled value={monthlyPayment}></lightning-input>
+		</lightning-layout-item>
+	</lightning-layout>
+</template>

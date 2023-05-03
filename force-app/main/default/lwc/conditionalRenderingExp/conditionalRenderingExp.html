@@ -1,6 +1,6 @@
 <template>
-	<lightning-layout>
-		<lightning-layout-item size="12">
+	<lightning-layout class="slds-card">
+		<lightning-layout-item size="12" class="slds-card__body slds-card__body_inner">
 			<div style="width: 20em;">
 				<lightning-input label="Name" onblur={handleNameChange}></lightning-input>
 				<lightning-input label="Age" type="number" onblur={handleAgeChange}></lightning-input>
@@ -13,13 +13,13 @@
 						disabled={disableButton}></lightning-button>
 				</div>
 			</div>
-			<!-- <template for:each={registeredUsers} for:item="user">
-				<div key={user.id}>
-					<lightning-formatted-text value={user.name}></lightning-formatted-text>
-					<br>
-				</div>
-			</template> -->
-			<lightning-datatable key-field="id" data={registeredUsers} columns={columns}></lightning-datatable>
+			<template for:each={registeredUsers} for:item="user">
+					<div key={user.id}>
+						<lightning-formatted-text value={user.name}></lightning-formatted-text>
+						<br>
+					</div>
+				</template>
+			<!-- <lightning-datatable key-field="id" data={registeredUsers} columns={columns}></lightning-datatable> -->
 		</lightning-layout-item>
 	</lightning-layout>
 </template>

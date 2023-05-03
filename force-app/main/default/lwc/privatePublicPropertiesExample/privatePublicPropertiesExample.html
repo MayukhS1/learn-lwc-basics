@@ -1,0 +1,10 @@
+<template>
+	<lightning-layout>
+		<lightning-layout-item size="12">
+			<lightning-input label="Time (in Years)" value={time} onchange={handleTimeChange} type="number"></lightning-input>
+            <lightning-input label="Rate (in %)" value={rate} onchange={handleRateChange} type="number"></lightning-input>
+            <lightning-input label="Principal (in $)" value={principal} onchange={handlePrincipalChange} formatter="currency"></lightning-input>
+            <lightning-output-field label="Simple Interest" value={simpleInterest} type="currency"></lightning-output-field>
+		</lightning-layout-item>
+	</lightning-layout>
+</template>
