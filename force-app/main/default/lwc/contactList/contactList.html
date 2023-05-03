@@ -1,0 +1,105 @@
+<template>
+    <lightning-layout class="slds-card">
+        <lightning-layout-item size="12" class="slds-card__body slds-card__body_inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-contact" title="contact">
+                                <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                                    <use xlink:href="/apexpages/slds/latest/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                                </svg>
+                                <span class="slds-assistive-text">contact</span>
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                <span>Contact</span>
+                            </h2>
+                        </div>
+                    </header>
+                    <table
+                        class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered slds-table_fixed-layout"
+                        role="grid"
+                        aria-label="Example table in a Card"
+                    >
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Name">Name</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Title">Email</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Email">Phone No.</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Email">Action</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={filteredContacts} for:item="contact">
+                                <tr class="slds-hint-parent" key={contact.Id}>
+                                    <th scope="row">
+                                        <div class="slds-truncate">
+                                            <a href="#" tabindex="-1">{contact.Name}</a>
+                                        </div>
+                                    </th>
+                                    <td role="gridcell">
+                                        <div class="slds-truncate">{contact.Email}</div>
+                                    </td>
+                                    <td role="gridcell">
+                                        <div class="slds-truncate">{contact.Phone}</div>
+                                    </td>
+                                    <td role="gridcell">
+                                        <lightning-button
+                                            label="Delete"
+                                            icon-name="utility:delete"
+                                            icon-position="right"
+                                            onclick={handleDelete}
+                                            data-id={contact.Id}
+                                        >
+                                        </lightning-button>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                    <!-- <table class="table">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Email</th>
+                                <th>Mailing Address</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={filteredContacts} for:item="contact">
+                                <tr key={contact.Id} class="slds-p-around_medium">
+                                    <td>{contact.FirstName}</td>
+                                    <td>{contact.LastName}</td>
+                                    <td>{contact.Email}</td>
+                                    <td>{contact.Phone}</td>
+                                    <td>
+                                        <button
+                                            class="btn btn-sm btn-outline-danger"
+                                            onclick={handleDelete}
+                                            data-id={contact.Id}
+                                        >
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table> -->
+                </div>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>
