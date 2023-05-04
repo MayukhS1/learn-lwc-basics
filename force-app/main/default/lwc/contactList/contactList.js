@@ -25,16 +25,17 @@ export default class ContactList extends LightningElement {
     @api
     get filteredContacts() {
         const searchTerm = this.searchTerm.toLowerCase();
-        console.log('searchTerm', searchTerm);
+        console.log('get method searchTerm', searchTerm);
         if (searchTerm === '') {
             return this.contacts;
         }
-        return this.contacts.filter(
-            (contact) =>
-                contact.Name.toLowerCase().includes(searchTerm) ||
-                contact.Email.toLowerCase().includes(searchTerm) ||
-                contact.Phone.toLowerCase().includes(searchTerm)
-        );
+        return this.contacts.filter((contact) => {
+            return (
+                String(contact.Name).toLowerCase().includes(searchTerm) ||
+                String(contact.Email).toLowerCase().includes(searchTerm) ||
+                String(contact.Phone).toLowerCase().includes(searchTerm)
+            );
+        });
     }
 
     loadContacts() {
@@ -57,18 +58,20 @@ export default class ContactList extends LightningElement {
         const result = await LightningConfirm.open({
             message: 'Are You sure you want to delete this contact?',
             variant: 'header',
-            label: 'Confirm Delete',
+            label: 'Confirm Delete'
         });
-        if(!result) {
+        if (!result) {
             return;
         }
         deleteRecord(contactId)
             .then(() => {
-                this.dispatchEvent(new ShowToastEvent({
-                    title: 'Contact Deleted',
-                    message: `Record deleted successfully | id: ${contactId}`,
-                    variant: 'success'
-                }));
+                this.dispatchEvent(
+                    new ShowToastEvent({
+                        title: 'Contact Deleted',
+                        message: `Record deleted successfully | id: ${contactId}`,
+                        variant: 'success'
+                    })
+                );
                 this.contacts = this.contacts.filter((contact) => contact.Id !== contactId);
             })
             .catch((error) => {

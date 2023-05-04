@@ -7,7 +7,9 @@
                         <div class="slds-media__figure">
                             <span class="slds-icon_container slds-icon-standard-contact" title="contact">
                                 <svg class="slds-icon slds-icon_small" aria-hidden="true">
-                                    <use xlink:href="/apexpages/slds/latest/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+                                    <use
+                                        xlink:href="/apexpages/slds/latest/assets/icons/standard-sprite/svg/symbols.svg#contact"
+                                    ></use>
                                 </svg>
                                 <span class="slds-assistive-text">contact</span>
                             </span>
@@ -17,6 +19,7 @@
                                 <span>Contact</span>
                             </h2>
                         </div>
+                        <lightning-input type="search" label="Search" onchange={handleSearch}> </lightning-input>
                     </header>
                     <table
                         class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered slds-table_fixed-layout"
