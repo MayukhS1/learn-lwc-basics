@@ -6,5 +6,6 @@
   },
   "cSpell.words": [
     "dismissable"
-  ]
+  ],
+  "salesforcedx-vscode-core.retrieve-test-code-coverage": true
 }
