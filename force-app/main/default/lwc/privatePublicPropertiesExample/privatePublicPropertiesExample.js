@@ -30,5 +30,16 @@ export default class PrivatePublicPropertiesExample extends LightningElement {
             messageBody: `Tax Amount: ${taxAmount}`,
             className: 'slds-text-color_success'
         };
+        if(taxAmount>500){
+            const handleNotification =  this.template.querySelector('c-handle-notification-utility');
+            handleNotification.notificationDetails = {
+                title: 'Warning',
+                message: 'Consider suggesting an ROI reduction plan!',
+                variant: 'warning',
+                mode: 'dismissable',
+                duration: 5000
+            };
+            handleNotification.showNotification();
+        }
     }
 }
