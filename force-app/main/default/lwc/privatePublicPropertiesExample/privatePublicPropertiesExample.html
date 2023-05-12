@@ -1,10 +1,37 @@
 <template>
-	<lightning-layout>
-		<lightning-layout-item size="12">
-			<lightning-input label="Time (in Years)" value={time} onchange={handleTimeChange} type="number"></lightning-input>
-            <lightning-input label="Rate (in %)" value={rate} onchange={handleRateChange} type="number"></lightning-input>
-            <lightning-input label="Principal (in $)" value={principal} onchange={handlePrincipalChange} formatter="currency"></lightning-input>
-            <lightning-output-field label="Simple Interest" value={simpleInterest} type="currency"></lightning-output-field>
-		</lightning-layout-item>
-	</lightning-layout>
+    <c-handle-notification-utility></c-handle-notification-utility>
+    <lightning-card title="Simple Interest Calculator" icon-name="standard:account">
+        <div class="slds-p-horizontal_small">
+            <lightning-input
+                label="Time (in Years)"
+                value={time}
+                onchange={handleTimeChange}
+                type="number"
+            ></lightning-input>
+            <lightning-input
+                label="Rate (in %)"
+                value={rate}
+                step="0.01"
+                onchange={handleRateChange}
+                type="number"
+            ></lightning-input>
+            <lightning-input
+                label="Principal (in $)"
+                value={principal}
+                onchange={handlePrincipalChange}
+                formatter="currency"
+                type="number"
+            ></lightning-input>
+            <lightning-button label="Calculate" onclick={calculateSimpleInterest}></lightning-button>
+            <lightning-input
+                label="Simple Interest"
+                value={simpleInterest}
+                type="currency"
+                read-only="true"
+            ></lightning-input>
+			<template lwc:if={interestMessage.displayMessage}>
+				<div class={interestMessage.className}>{interestMessage.messageBody}</div>
+			</template>
+        </div>
+    </lightning-card>
 </template>
