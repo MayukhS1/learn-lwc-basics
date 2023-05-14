@@ -5,7 +5,8 @@
     "**/.sfdx": true
   },
   "cSpell.words": [
-    "dismissable"
+    "dismissable",
+    "slds"
   ],
   "salesforcedx-vscode-core.retrieve-test-code-coverage": true
 }
