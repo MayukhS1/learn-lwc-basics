@@ -1,0 +1,45 @@
+<template>
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <a href="#" class="slds-card__header-link slds-truncate" title="Accounts">
+                            <span>{student.name}</span>
+                        </a>
+                    </h2>
+                </div>
+            </header>
+        </div>
+        <div class="slds-card__body slds-card__body_inner">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <span>
+                        <lightning-input
+                            label="Total Marks"
+                            value={student.totalMarks}
+                            onchange={handleTotalMarksChange}
+                            type="number"
+                            required
+                        ></lightning-input>
+                    </span>
+                </div>
+                <div class="slds-col">
+                    <span>
+                        <lightning-input type="text" value={student.grade} label="Grade" disabled></lightning-input>
+                    </span>
+                </div>
+                <div class="slds-col">
+                    <span>
+                        <lightning-input
+                            type="checkbox"
+                            label="Is Passed"
+                            checked={student.isPassed}
+                            disabled
+                        ></lightning-input>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </article>
+</template>
